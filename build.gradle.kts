@@ -16,12 +16,16 @@ description = "My Kotlin Paper Plugin"
 repositories {
     mavenCentral()
     maven("https://papermc.io/repo/repository/maven-public/")
+    maven("https://maven.lenni0451.net/releases")
+    maven("https://repo.viaversion.com/")
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
-    paperDevBundle("1.19.3-R0.1-SNAPSHOT")
-    implementation("net.axay:kspigot:1.19.1")
+    paperDevBundle("1.19.2-R0.1-SNAPSHOT")
+    implementation("net.axay:kspigot:1.19.0")
+    compileOnly("com.viaversion:viaversion:4.6.0-1.19.4-pre3-SNAPSHOT")
+    implementation("net.raphimc:ViaAprilFools:2.0.4")
 }
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
@@ -44,29 +48,19 @@ tasks {
 }
 
 bukkit {
-    name = "Starter"
+    name = "ViaAprilFoolsPaper"
     description = description
-    main = "net.satellyte.starter.Starter"
+    main = "dev.igalaxy.viaaprilfoolspaper.ViaAprilFoolsPaper"
     version = version
     apiVersion = "1.19"
+    depend = listOf("ViaVersion", "ViaBackwards")
 }
 
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            artifactId = "starter"
+            artifactId = "viaaprilfoolspaper"
             from(components["java"])
-        }
-    }
-    repositories {
-        maven {
-            val releasesRepoUrl = "https://repo.example.com/releases"
-            val snapshotsRepoUrl = "https://repo.example.com/snapshots"
-            url = uri(if (project.hasProperty("release")) releasesRepoUrl else snapshotsRepoUrl)
-            credentials {
-                username = System.getenv("MAVEN_REPO_USERNAME")
-                password = System.getenv("MAVEN_REPO_PASSWORD")
-            }
         }
     }
 }
