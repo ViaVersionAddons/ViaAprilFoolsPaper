@@ -1,5 +1,9 @@
 # 💾 ViaAprilFools Paper
 
-Allows Minecraft 3D Shareware v1.34 clients to join Paper servers running ViaVersion 4.6.0+
+Allows Minecraft 3D Shareware v1.34 clients to join Paper servers
 
-Thanks to [ViaAprilFools](https://github.com/RaphiMC/ViaAprilFools)
+Paper platform implementation of [ViaAprilFools](https://github.com/RaphiMC/ViaAprilFools)
+
+## Dependencies
+- ViaVersion 4.6.0+
+- ViaBackwards 4.6.0+
